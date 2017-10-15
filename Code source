@@ -1,0 +1,73 @@
+Set Sapi = Wscript.CreateObject("SAPI.SpVoice")
+set wshshell = wscript.CreateObject("wscript.shell")
+do
+dim Input
+
+wshshell.run "%windir%\Speech\Common\sapisvr.exe -SpeechUX"
+Sapi.speak "Que puis-je faire pour vous"
+Input=inputbox ("Bonjour")
+
+
+
+
+if Input = "Lecteur vidéo" OR Input = "Youtube"then
+Sapi.speak "J'ouvre Youtube"
+wshshell.run "www.youtube.com"
+
+
+else
+if Input = "Navigateur internet" OR Input = "Google" then
+Sapi.speak "J'ouvre google"
+wshshell.run "www.google.com"
+
+else
+if Input = "Invite de commandes" OR Input = "Cmd" then
+Sapi.speak "j'ouvre l'invite de commandes"
+wshshell.run "cmd"
+
+else
+if Input = "Calculatrice" OR Input = "Calculatrice" then
+Sapi.speak "J'ouvre la calculatrice"
+wshshell.run "calc"
+
+else
+if Input = "Bloc-notes" then
+Sapi.speak "J'ouvre le bloc-notes"
+wshshell.run "notepad"
+
+else
+if Input = "Météo" then
+Sapi.speak "Voici la météo"
+wshshell.run "https://weather.com/"
+
+else
+if Input = "Quelle heure est-il" then
+Sapi.speak TIME
+else
+if Input = "Quelle date sommes-nous" OR Input = "Quelle date sommes nous" then
+Sapi.speak DATE
+
+else
+if Input = "C'est quoi ton nom" then
+Sapi.speak "Je m'appelle Trilo"
+else if Input = "Anniversaire Stéphane" then
+Sapi.speak "16 du 10 1972" 
+else
+
+
+
+Sapi.speak "Je ne comprends pas"
+end if
+end if
+end if
+end if
+end if
+end if
+end if
+end if
+end if
+end if
+
+
+
+loop
